@@ -1,15 +1,16 @@
 {
-  "name": "nodebb-plugin-quickstart",
+  "name": "nodebb-plugin-meetup",
   "version": "0.0.0",
-  "description": "",
+  "description": "Meetup Integration for NodeBB",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/julianlam/nodebb-plugin-quickstart"
+    "url": "https://github.com/julianlam/nodebb-plugin-meetup"
   },
   "keywords": [
     "nodebb",
-    "plugin"
+    "plugin",
+    "meetup"
   ],
   "author": {
     "name": "Julian Lam",
@@ -17,10 +18,10 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/julianlam/nodebb-plugin-quickstart/issues"
+    "url": "https://github.com/julianlam/nodebb-plugin-meetup/issues"
   },
   "readmeFilename": "README.md",
   "nbbpm": {
-    "compatibility": "^0.6.0"
+    "compatibility": ">0.6.0 <0.7.1"
   }
 }
