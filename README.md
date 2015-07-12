@@ -8,4 +8,4 @@ For more information: [Meetup Website](http://www.meetup.com/)
 
 ## Installation
 
-    Install this plugin from the plugins page in NodeBB, or execute `npm install nodebb-plugin-meetup`
+Install this plugin from the plugins page in NodeBB, or execute `npm install nodebb-plugin-meetup`
