@@ -1,5 +1,7 @@
 # Meetup Integration
 
+![Meetup.com](static/images/meetup.png)
+
 ## What is Meetup?
 
 > Meetup is an online social networking portal that facilitates offline group meetings in various localities around the world. Meetup allows members to find and join groups unified by a common interest, such as politics, books, games, movies, health, pets, careers or hobbies. Users enter their postal code or their city and the topic they want to meet about, and the website helps them arrange a place and time to meet. Topic listings are also available for users who only enter a location. *-- Wikipedia*
