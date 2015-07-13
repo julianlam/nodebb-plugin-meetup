@@ -8,6 +8,12 @@
 
 For more information: [Meetup Website](http://www.meetup.com/)
 
+## What do I get with this plugin?
+
+* Configurable widgets
+    * Meetup Group Details (requires group name)
+    * Meetup Event Details (requires Meetup ID)
+
 ## Installation
 
 Install this plugin from the plugins page in NodeBB, or execute `npm install nodebb-plugin-meetup`

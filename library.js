@@ -11,18 +11,21 @@ var templates = require.main.require('templates.js'),
 
 	plugin = {
 		api: {
-			base: 'https://api.meetup.com/2'
+			base: 'https://api.meetup.com'
 		},
 		templates: {
-			ids: ['meetup-details'],
+			ids: ['meetup-details', 'meetup-group'],
 			paths: {
-				'meetup-details': 'static/templates/widgets/meetup/admin/details.tpl'
+				'meetup-details': 'static/templates/widgets/meetup/admin/details.tpl',
+				'meetup-group': 'static/templates/widgets/meetup/admin/group.tpl'
 			},
 			names: {
-				'meetup-details': 'Meetup Event Details'
+				'meetup-details': 'Meetup Event Details',
+				'meetup-group': 'Meetup Group Details'
 			},
 			descriptions: {
-				'meetup-details': 'Displays details for a single Meetup Event (name, place, etc.)'
+				'meetup-details': 'Displays details for a single Meetup Event (name, place, etc.)',
+				'meetup-group': 'Displays details for a single Meetup Group (name, place, etc.)'
 			},
 			html: {}
 		},
@@ -86,7 +89,14 @@ plugin.defineWidgets = function(widgets, callback) {
 };
 
 plugin.renderDetailsWidget = function(widget, callback) {
-	request.get(plugin.api.base + '/event/' + widget.data.meetupId, {
+	if (!widget.data.meetupId) {
+		app.render('widgets/meetup/details', {}, function(err, html) {
+			callback(null, html);
+		});
+		return;
+	}
+
+	request.get(plugin.api.base + '/2/event/' + widget.data.meetupId, {
 		json: true,
 		qs: {
 			text_format: 'plain',
@@ -101,6 +111,29 @@ plugin.renderDetailsWidget = function(widget, callback) {
 				past: body.status === 'past',
 				upcoming: body.status === 'upcoming'
 			}
+		}, function(err, html) {
+			callback(null, html);
+		});
+	});
+};
+
+plugin.renderGroupWidget = function(widget, callback) {
+	if (!widget.data.groupId) {
+		app.render('widgets/meetup/group', {}, function(err, html) {
+			callback(null, html);
+		});
+		return;
+	}
+
+	request.get(plugin.api.base + '/' + widget.data.groupId, {
+		json: true,
+		qs: {
+			key: plugin.settings.key
+		}
+	}, function(err, res, body) {
+		app.render('widgets/meetup/group', {
+			showGroupPhoto: widget.data.showGroupPhoto === 'on',
+			group: body
 		}, function(err, html) {
 			callback(null, html);
 		});

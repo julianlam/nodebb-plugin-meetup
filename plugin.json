@@ -6,7 +6,8 @@
 		{ "hook": "static:app.load", "method": "init" },
 		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
 		{ "hook": "filter:widgets.getWidgets", "method": "defineWidgets" },
-		{ "hook": "filter:widget.render:meetup-details", "method": "renderDetailsWidget" }
+		{ "hook": "filter:widget.render:meetup-details", "method": "renderDetailsWidget" },
+		{ "hook": "filter:widget.render:meetup-group", "method": "renderGroupWidget" }
 	],
 	"staticDirs": {
 		"static": "./static"
